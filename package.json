@@ -1,0 +1,41 @@
+{
+  "name": "typescript-library-starter-kit",
+  "version": "0.0.1",
+  "description": "Typescript library starter kit",
+  "author": "Ryan Kan <ryan@ninjabanana.com>",
+  "license": "UNLICENSED",
+  "repository": "https://github.com/ryanwkan/typescript-library-starter-kit.git",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm test && nyc check-coverage --lines 95 --functions 70 --branches 95 && rm -rf dist/ && rollup -c",
+    "lint": "tslint -p . -c tslint.json",
+    "pretest": "tsc test/*.ts test/**/*.ts --module commonjs",
+    "test": "nyc mocha --recursive",
+    "test:coverage-check": "nyc check-coverage --lines 95 --functions 70 --branches 95",
+    "prepare": "tsc"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/lodash": "^4.14.68",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.56",
+    "aws-sdk": "^2.41.0",
+    "chai": "^4.0.2",
+    "mocha": "^3.2.0",
+    "nyc": "^13.0.1",
+    "rollup": "^0.66.2",
+    "rollup-plugin-typescript2": "^0.17.0",
+    "rosie": "^2.0.1",
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "joi": "^13.6.0"
+  }
+}
